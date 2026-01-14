@@ -263,16 +263,19 @@
             const effectiveKey = apiKey || window.GEMINI_API_KEY || localStorage.getItem('gemini_api_key');
 
             if (!effectiveKey) {
-                return "API 키가 설정되지 않았습니다. 우측 하단 열쇠 아이콘을 눌러 키를 입력해주세요.";
+                alert("API 키가 설정되지 않았습니다. Netlify 설정을 확인하거나 열쇠 아이콘을 눌러 키를 입력해주세요.");
+                return "API 키가 설정되지 않았습니다.";
             }
 
             // OpenRouter API URL
             const url = "https://openrouter.ai/api/v1/chat/completions";
             
             // OpenRouter Payload Structure
-            // TIP: 여기 model 값을 변경하면 GPT-4o, Claude 3.5 Sonnet 등 다른 모델도 사용 가능합니다.
+            // [중요] 모델 ID 수정: Gemini 3.0은 아직 출시 전이거나 ID가 다를 수 있습니다.
+            // 확실하게 작동하는 'Gemini 2.0 Flash Experimental (무료)' 모델로 설정합니다.
+            // 다른 모델을 원하시면 OpenRouter 사이트에서 'Model ID'를 복사해서 아래 "model" 값에 넣으세요.
             const payload = {
-                "model": "google/gemini-3.0-pro-preview", // Google: Gemini 3 Pro Preview 모델 사용
+                "model": "google/gemini-2.0-flash-exp:free", 
                 "messages": [
                     {
                         "role": "user",
@@ -295,14 +298,20 @@
                 
                 if (!response.ok) {
                     const errorData = await response.json().catch(() => ({}));
-                    throw new Error(errorData.error?.message || `HTTP error! status: ${response.status}`);
+                    console.error("OpenRouter Error Details:", errorData);
+                    
+                    // 사용자가 오류 원인을 알 수 있도록 팝업 표시
+                    const errorMessage = errorData.error?.message || `HTTP error! status: ${response.status}`;
+                    alert(`[API 오류 발생]\n내용: ${errorMessage}\n\n키가 올바른지, 혹은 크레딧이 있는지(무료 모델 제외) 확인해주세요.`);
+                    
+                    throw new Error(errorMessage);
                 }
                 
                 const data = await response.json();
                 return data.choices?.[0]?.message?.content || "죄송합니다. 응답을 생성할 수 없습니다.";
             } catch (error) {
                 console.error("API Error:", error);
-                return `오류가 발생했습니다. OpenRouter API 키를 확인해주세요. (${error.message})`;
+                return `오류가 발생했습니다. (${error.message})`;
             }
         }
 
