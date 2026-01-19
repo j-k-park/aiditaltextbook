@@ -471,7 +471,7 @@
             // Data
             const navItems = [
                 { id: 'intro', label: 'Home' }, 
-                { id: 'profile', label: '교과서 보기' }, 
+                { id: 'profile', label: '교과서보기 및 스토리라인' }, 
                 { id: 'aidt', label: '수·발·했·제' },
                 { id: 'class', label: '수업 사례' }, 
                 { id: 'ai-features', label: '✅AI 체험' }, 
@@ -481,7 +481,7 @@
 
             // Image URLs
             const profileImageSrc = "https://ivy-rugby-daf.notion.site/image/attachment%3A3a199f97-f1d4-405b-856d-1eb38e8402f2%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7-2025-10-10-214714.svg?table=block&id=2883ec20-06d9-802c-8879-f10a58613375&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&userId=&cache=v2";
-            const footerModalImageSrc = "https://drive.google.com/file/d/1TEjRdTFhn3SdWeLLBbN6EDsJ0uxTPaqk/view?usp=sharing";
+            const footerModalImageSrc = "https://drive.google.com/file/d/16K9FzBNPVTXPI_s8Tp3Gan7zkhb4vPfO/view?usp=sharing";
             
             // Activity Photos Data (Changed to object structure for captions)
             const activityPhotos = [
@@ -494,8 +494,8 @@
                     caption: <span>AI 디지털 교육자료 <span className="text-red-600 font-bold">활용 후</span></span>
                 },
                 {
-                    url: "https://ivy-rugby-daf.notion.site/image/attachment%3Af05226da-f899-4ab9-b997-ded7d78b6b13%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-18_110836.png?table=block&id=2b63ec20-06d9-8083-a4ec-d05516507a02&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=660&userId=&cache=v2",
-                    caption: "학생별 실시간 과제 제출 현황"
+                    url: "https://ivy-rugby-daf.notion.site/image/attachment%3Ae0f99fc1-ad33-407b-99b4-4c8002b68c4f%3ADSC_0813_(1).jpg?table=block&id=2ed3ec20-06d9-80e8-a303-fd5f06a160af&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2",
+                    caption: "서책병 병행 수업 모습"
                 },
                 {
                     url: "https://ivy-rugby-daf.notion.site/image/attachment%3A6fcab2dd-66f5-4c1a-b30c-164b7b09da69%3A%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2025-11-18_111248.png?table=block&id=2e83ec20-06d9-8029-bc0b-fcbccab3e253&spaceId=a57f2ff5-0671-465c-bf6a-c699bdf0fd16&width=1420&userId=&cache=v2",
@@ -542,14 +542,7 @@
                     {/* API Key Modal */}
                     {isKeyModalOpen && <ApiKeyModal />}
                     
-                    {/* Settings Button */}
-                    <button 
-                        onClick={() => setIsKeyModalOpen(true)}
-                        className="fixed bottom-4 right-4 z-40 bg-white p-3 rounded-full shadow-lg border border-stone-200 hover:bg-amber-50 transition-colors"
-                        title="API 키 설정"
-                    >
-                        <Key size={20} className="text-stone-400" />
-                    </button>
+                    {/* Settings Button (Removed) */}
 
                     {/* Navigation */}
                     <nav className="fixed top-0 w-full bg-[#FDFCF6]/90 backdrop-blur-md shadow-sm z-50 border-b border-stone-200">
@@ -605,9 +598,13 @@
                                 <span className="block mb-2 text-stone-800">Wheels of Adventure</span>
                                 <span className="highlight-text block text-2xl md:text-4xl mt-4">AI 디지털 교육자료와 함께 넘는<br/>소통의 장벽</span>
                             </h1>
-                            <p className="text-lg text-stone-600 mb-10 leading-relaxed font-normal max-w-2xl mx-auto">
-                                고등학교 현장의 두 가지 파도, <span className="font-bold text-stone-800">'수능(입시)'</span>의 벽과 <span className="font-bold text-stone-800">'최소 성취수준(E)'</span> 보장.<br/>
-                                <span className="text-amber-600 font-semibold">AI 디지털 교육자료</span>라는 새로운 핸드사이클로 그 장벽을 넘습니다.
+                            <p 
+                                className="text-lg text-stone-600 mb-10 leading-relaxed font-normal max-w-2xl mx-auto cursor-pointer hover:opacity-80 transition-opacity"
+                                onClick={() => openModal("https://drive.google.com/file/d/1-5sLkquh0insYCBxi3es2aNfvMcWVaPr/view?usp=sharing")}
+                                title="클릭하여 자료 보기"
+                            >
+                                고등학교 현장 3가지 벽, <span className="font-bold text-stone-800">'수능(입시)'</span>의 벽과 <span className="font-bold text-stone-800">'최소성취수준(E)'</span> 보장, <span className="font-bold text-stone-800">'다양한 수준'</span><br/>
+                                <span className="text-amber-600 font-semibold">AI 디지털 교육자료</span>라는 새로운 핸드사이클로 그 장벽을 넘어볼까요?
                             </p>
                             <div className="border-t border-stone-200 pt-8 inline-block mx-auto px-8">
                                 <div className="flex flex-col sm:flex-row justify-center gap-6 text-sm text-stone-500 mb-4">
@@ -636,7 +633,7 @@
                                     <div>
                                         <h2 className="text-2xl font-bold mb-1 google-font text-stone-900">박정교 교사</h2>
                                         <p className="text-amber-700 font-medium mb-3">전북 호남고등학교</p>
-                                        <p className="text-xs text-stone-400 mb-4">"비빔밥으로 유명한 전주에서 올라온<br/>20년차 고등학교 영어 교사"</p>
+                                        <p className="text-xs text-stone-400 mb-4">"비빔밥으로 알려진 전주에서 올라온<br/>평범한 일반고 고등학교 영어 교사"</p>
                                         <div className="mt-2">
                                             <a href="https://drive.google.com/file/d/1gDugj4Cd9C3enCfWNEK3s30LnjA7J38h/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-stone-200 shadow-sm text-xs font-bold text-stone-600 hover:bg-amber-50 hover:text-amber-700 hover:border-amber-200 transition-all cursor-pointer">
                                                 <span className="text-base">📖</span> 교과서 보기
@@ -652,15 +649,18 @@
                                         {[
                                             { 
                                                 content: <span>01. 도입 : <span className="text-[#B91C1C] font-bold">[WHY] 왜</span> AI 디지털 교육자료를 사용해야 하는가?</span>, 
-                                                onClick: () => openModal("https://drive.google.com/file/d/1PtAS0p6BNW8cjUSfJ_B86Cw5ItT8rE1T/view?usp=sharing") 
+                                                onClick: () => openModal("https://drive.google.com/file/d/1-5sLkquh0insYCBxi3es2aNfvMcWVaPr/view?usp=sharing") 
                                             },
                                             { 
-                                                content: <span>02. 수업 개요 및 <span className="text-[#B91C1C] font-bold">2022 개정교육과정</span> 성취기준, 학습목표</span>, 
-                                                onClick: () => openModal("https://drive.google.com/file/d/1Z2P_CsREdnZDMQPsIXa2hQObN_zprrUs/view?usp=sharing") 
+                                                content: <span>02. 수업 개요 및 <span className="text-[#B91C1C] font-bold">2022 개정교육과정</span> 성취기준, 학습목표, 핵심아이디어</span>, 
+                                                onClick: () => openModal("https://drive.google.com/file/d/1tsDxCsDnfZRuhuOLk8_fgoSzc-u4Za7m/view?usp=sharing") 
                                             },
                                             { content: <span>03. 전략: <span className="text-[#B91C1C] font-bold">'수·발·했·제'</span> (수업재구성, 발음, 해석, 과제, 데이터)</span> },
                                             { content: <span>04. <span className="text-[#B91C1C] font-bold">사례</span>: Wheels of Adventure (Lesson 4. A Sunshine Break)</span> },
-                                            { content: <span>05. 효과: <span className="text-[#B91C1C] font-bold">E등급 학생도 포기하지 않는</span> '게임' 같은 수업</span> },
+                                            { 
+                                                content: <span>05. 효과: <span className="text-[#B91C1C] font-bold">E등급 학생들도 도전하고 따라갈 수 있는</span> '개별 맞춤형 수업'</span>,
+                                                onClick: () => openModal("https://drive.google.com/file/d/1M-zGpJzZS0ftyRXLgIj2AakCKAvWnNKq/view?usp=sharing")
+                                            },
                                             { content: <span>06. 인프라: 전국적으로 완성된 <span className="text-[#B91C1C] font-bold">1인 1스마트기기</span> 환경 활용</span> },
                                             { content: <span>07. 결론: High Touch High Tech (<span className="text-[#B91C1C] font-bold">따뜻한 동행</span>)</span> }
                                         ].map((item, idx) => (
@@ -699,7 +699,22 @@
                                 <FeatureCard icon={<MonitorPlay color="#D97706" />} title="수 - 수업 재구성 (Reconstruction)" desc="'교사가 자신의 수업에 맞게 교육과정 재구성 [수준 및 순서등]'&#13;&#10;'다양한 에듀테크 도구들 'AI 디지털 교육자료'에 접목시켜 사용'" />
                                 <FeatureCard icon={<MessageCircle color="#059669" />} title="발 - 발음 분석 (Pronunciation)" desc="'AI 발음 튜터와 연습하며 반복적으로 말하기 자신감 키우기'&#13;&#10;'눈으로만 읽는 독해 탈피, 소리내어 읽는 그대로 텍스트 파악하기'" />
                                 <FeatureCard icon={<Brain color="#B45309" />} title="했 - 해석/구문 분석 (Interpretation)" desc="'수능 독해의 기초 체력! 복잡한 문장 구조 시각적으로 분석'&#13;&#10;'선생님, 이제 문장이 보여요!' 변화 이끌어내기" />
-                                <FeatureCard icon={<BarChart color="#EA580C" />} title="데 - 데이터 기반 진단 (Data)" desc="'학생들 활동 과제 및 평가 데이터 축적 후 맞춤형 과제 제공'&#13;&#10;'개별 학생 수준에 따라 다르게 제공되는 맞춤형 학습'" />
+                                <FeatureCard 
+                                    icon={<BarChart color="#EA580C" />} 
+                                    title={
+                                        <>
+                                            <span 
+                                                className="cursor-pointer hover:text-amber-600 transition-colors border-b-2 border-transparent hover:border-amber-600"
+                                                onClick={() => openModal("https://drive.google.com/file/d/1M-zGpJzZS0ftyRXLgIj2AakCKAvWnNKq/view?usp=sharing")}
+                                            >
+                                                데 - 데이터 기반 학습맵 및 영역별 성취도
+                                            </span>
+                                            <br/>
+                                            데 - 데이터 기반 진단 (Data)
+                                        </>
+                                    } 
+                                    desc="'학생들 활동 과제 및 평가 데이터 축적 후 맞춤형 과제 제공'&#13;&#10;'개별 학생 수준에 따라 다르게 제공되는 맞춤형 학습'" 
+                                />
                                 <FeatureCard icon={<Edit color="#9333EA" />} title="과 - 과제/AI 글쓰기 (Writing)" desc="'AI 첨삭 도우미가 실시간으로 문법과 표현 교정'&#13;&#10;'두려움 없이 영작에 도전, 즉각적인 피드백 통해 작문 실력 높이기'" />
                                 <FeatureCard icon={<CheckCircle color="#2563EB" />} title="평 - AI 맞춤형 평가 (Assessment)" desc="'결과 중심의 평가가 아닌 과정 중심의 평가 실현'&#13;&#10;'AI 형성평가' 실시로 학습 목표 도달도 확인, 수준에 맞는 보충 문제 제공'" />
                             </div>
@@ -787,6 +802,14 @@
                                             <div className="mt-1 pl-2 border-l-2 border-amber-300 space-y-1 bg-amber-50/50 p-2 rounded-r-lg">
                                                 <p className="text-xs text-stone-700"><span className="font-bold text-stone-900">협력적 소통 역량 :</span> 친구들과 의견 조율하며 정답 도출</p>
                                                 <p className="text-xs text-stone-700"><span className="font-bold text-stone-900">구글 클래스룸 연동 :</span> 온-오프라인을 넘나드는 블렌디드 활동</p>
+                                            </div>
+                                            <div className="mt-1 flex flex-col sm:flex-row gap-2">
+                                                <a href="https://docs.google.com/document/d/e/2PACX-1vR4pWH2b6e3Zoptdj9hR3SMLkRUf6O7R25gAbjr-agwkNaI4d6UuMwPxTH_zk8kXvae9Rtp36G_s9XY/pub" target="_blank" rel="noopener noreferrer" className="flex-1 py-2 px-3 rounded-lg bg-blue-50 text-blue-700 text-xs font-bold hover:bg-blue-100 transition-colors border border-blue-200 flex items-center justify-center gap-2">
+                                                    <FileText size={14} /> 모둠별 협력활동지 보기
+                                                </a>
+                                                <button onClick={() => openModal("https://drive.google.com/file/d/16dFW-RZscGA8LGHBAVHxr8NeXc4HmjBc/view?usp=sharing")} className="flex-1 py-2 px-3 rounded-lg bg-green-50 text-green-700 text-xs font-bold hover:bg-green-100 transition-colors border border-green-200 flex items-center justify-center gap-2 shadow-sm">
+                                                    <Upload size={14} /> 학생별 실시간 과제 제출 보기
+                                                </button>
                                             </div>
                                         </div>
                                     }
@@ -1045,7 +1068,7 @@
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 <InfoBox icon={<Laptop size={24} color="#FCD34D" />} title="최소성취 보장지도" desc="학기 초 예방지도 대상 선정부터 AI 추천 콘텐츠로 맞춤형 수업을 설계하고, 보충 과제를 부여하여 E등급 학생의 학력을 보장합니다." />
                                 <InfoBox icon={<FileText size={24} color="#FCD34D" />} title="데이터 기반 피드백" desc="AI가 수집한 학습 데이터를 바탕으로 교사는 정서적 지원과 학습 전략을 포함한 개별 피드백을 제공합니다." />
-                                <InfoBox icon={<MonitorPlay size={24} color="#FCD34D" />} title="게임 같은 도전" desc="'나도 할 수 있다'는 성취감을 줍니다. 발음 점수 그래프가 올라가는 것을 보며 오기가 생겨 계속 도전하게 만드는 수업입니다." />
+                                <InfoBox icon={<MonitorPlay size={24} color="#FCD34D" />} title="개별 맞춤형 교육" desc="'나도 할 수 있다'는 성취감을 줍니다. 발음 점수 그래프가 올라가는 것을 보며 오기가 생겨 계속 도전하게 만드는 수업입니다." />
                             </div>
                         </div>
                     </section>
@@ -1085,7 +1108,7 @@
                             <p className="text-stone-500 text-sm mb-2 font-medium">따뜻한 교실, 미래를 여는 교육</p>
                             <h3 className="font-bold text-stone-800 mb-3 google-font text-lg">전북 호남고등학교</h3>
                             <p className="text-stone-500 text-sm mb-8 leading-relaxed">
-                                AI · 디지털 교육자료 활용 수업 사례 발표 원고 웹사이트<br/>
+                                AI · 디지털 교육자료 활용 수업 사례 발표 원고 자료<br/>
                                 2026.01.22.Thu.
                             </p>
                             
