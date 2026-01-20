@@ -652,8 +652,31 @@
                                                 onClick: () => openModal("https://drive.google.com/file/d/1-5sLkquh0insYCBxi3es2aNfvMcWVaPr/view?usp=sharing") 
                                             },
                                             { 
-                                                content: <span>02. 수업 개요 및 <span className="text-[#B91C1C] font-bold">2022 개정교육과정</span> 성취기준, 학습목표, 핵심아이디어</span>, 
-                                                onClick: () => openModal("https://drive.google.com/file/d/1tsDxCsDnfZRuhuOLk8_fgoSzc-u4Za7m/view?usp=sharing") 
+                                                content: (
+                                                    <span className="flex flex-wrap items-center gap-1.5">
+                                                        <span>02. 수업 개요 및 <span className="text-[#B91C1C] font-bold">2022 개정교육과정</span> 성취기준, 학습목표, 핵심아이디어</span>
+                                                        <button 
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                openModal("https://drive.google.com/file/d/1tsDxCsDnfZRuhuOLk8_fgoSzc-u4Za7m/view?usp=sharing");
+                                                            }}
+                                                            className="inline-flex items-center justify-center px-1.5 py-0.5 ml-1 bg-white border border-stone-300 text-stone-600 text-[10px] font-bold rounded shadow-sm hover:bg-stone-50 hover:text-amber-600 transition-colors"
+                                                            title="기존 자료 보기"
+                                                        >
+                                                            [1]
+                                                        </button>
+                                                        <button 
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                openModal("https://drive.google.com/file/d/1yn3ij-7yTLWknRXX8LsXgRyqiQO3Hog5/view?usp=sharing");
+                                                            }}
+                                                            className="inline-flex items-center justify-center px-1.5 py-0.5 bg-white border border-stone-300 text-stone-600 text-[10px] font-bold rounded shadow-sm hover:bg-stone-50 hover:text-amber-600 transition-colors"
+                                                            title="추가 자료 보기"
+                                                        >
+                                                            [2]
+                                                        </button>
+                                                    </span>
+                                                )
                                             },
                                             { content: <span>03. 전략: <span className="text-[#B91C1C] font-bold">'수·발·했·제'</span> (수업재구성, 발음, 해석, 과제, 데이터)</span> },
                                             { content: <span>04. <span className="text-[#B91C1C] font-bold">사례</span>: Wheels of Adventure (Lesson 4. A Sunshine Break)</span> },
@@ -805,9 +828,14 @@
                                             </div>
                                             <div className="mt-1 flex flex-col sm:flex-row gap-2">
                                                 <a href="https://docs.google.com/document/d/e/2PACX-1vR4pWH2b6e3Zoptdj9hR3SMLkRUf6O7R25gAbjr-agwkNaI4d6UuMwPxTH_zk8kXvae9Rtp36G_s9XY/pub" target="_blank" rel="noopener noreferrer" className="flex-1 py-2 px-3 rounded-lg bg-blue-50 text-blue-700 text-xs font-bold hover:bg-blue-100 transition-colors border border-blue-200 flex items-center justify-center gap-2">
-                                                    <FileText size={14} /> 모둠별 협력활동지 보기
+                                                    <FileText size={14} /> 모둠별 협력활동지 (1)
                                                 </a>
-                                                <button onClick={() => openModal("https://drive.google.com/file/d/16dFW-RZscGA8LGHBAVHxr8NeXc4HmjBc/view?usp=sharing")} className="flex-1 py-2 px-3 rounded-lg bg-green-50 text-green-700 text-xs font-bold hover:bg-green-100 transition-colors border border-green-200 flex items-center justify-center gap-2 shadow-sm">
+                                                <button onClick={() => openModal("https://drive.google.com/file/d/1JAiG8chpML12UJxOiracdpAF5DJT5MoA/view?usp=sharing")} className="flex-1 py-2 px-3 rounded-lg bg-blue-50 text-blue-700 text-xs font-bold hover:bg-blue-100 transition-colors border border-blue-200 flex items-center justify-center gap-2">
+                                                    <FileText size={14} /> 모둠별 협력활동지 (2)
+                                                </button>
+                                            </div>
+                                            <div className="mt-2">
+                                                <button onClick={() => openModal("https://drive.google.com/file/d/16dFW-RZscGA8LGHBAVHxr8NeXc4HmjBc/view?usp=sharing")} className="w-full py-2 px-3 rounded-lg bg-green-50 text-green-700 text-xs font-bold hover:bg-green-100 transition-colors border border-green-200 flex items-center justify-center gap-2 shadow-sm">
                                                     <Upload size={14} /> 학생별 실시간 과제 제출 보기
                                                 </button>
                                             </div>
@@ -830,8 +858,11 @@
                                                 <button onClick={() => openModal("https://drive.google.com/file/d/1mC0azz4E-Fzrrg1117IEi-gsYd8b960_/view?usp=sharing")} className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white text-stone-600 text-xs font-bold hover:bg-stone-50 hover:text-stone-800 transition-colors border border-stone-300 shadow-sm">
                                                     <FileText size={14} /> AI 요약하기
                                                 </button>
+                                                <button onClick={() => openModal("https://drive.google.com/file/d/1UoQ3f4g-HZBZrSijVEgIchHgi31X8IVV/view?usp=sharing")} className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-violet-50 text-violet-700 text-xs font-bold hover:bg-violet-100 transition-colors border border-violet-200 shadow-sm">
+                                                    <MessageSquare size={14} /> 의견보드
+                                                </button>
                                                 <a href="https://grammar-ai-helper.netlify.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold hover:bg-amber-200 transition-colors border border-amber-200">
-                                                    <ExternalLink size={14} /> AI 디지털 교과서 : 영작 첨삭 도우미
+                                                    <ExternalLink size={14} /> AI 디지털 교육자료 : 영작 첨삭 도우미
                                                 </a>
                                             </div>
                                         </div>
