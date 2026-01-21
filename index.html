@@ -648,8 +648,31 @@
                                     <ul className="space-y-4 text-stone-600 animate-fade-in">
                                         {[
                                             { 
-                                                content: <span>01. 도입 : <span className="text-[#B91C1C] font-bold">[WHY] 왜</span> AI 디지털 교육자료를 사용해야 하는가?</span>, 
-                                                onClick: () => openModal("https://drive.google.com/file/d/1-5sLkquh0insYCBxi3es2aNfvMcWVaPr/view?usp=sharing") 
+                                                content: (
+                                                    <span className="flex flex-wrap items-center gap-1.5">
+                                                        <span>01. 도입 : <span className="text-[#B91C1C] font-bold">[WHY] 왜</span> AI 디지털 교육자료를 사용해야 하는가?</span>
+                                                        <button 
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                openModal("https://drive.google.com/file/d/1-5sLkquh0insYCBxi3es2aNfvMcWVaPr/view?usp=sharing");
+                                                            }}
+                                                            className="inline-flex items-center justify-center px-1.5 py-0.5 ml-1 bg-white border border-stone-300 text-stone-600 text-[10px] font-bold rounded shadow-sm hover:bg-stone-50 hover:text-amber-600 transition-colors"
+                                                            title="자료 1 보기"
+                                                        >
+                                                            [1]
+                                                        </button>
+                                                        <button 
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                openModal("https://drive.google.com/file/d/1FG1zW-XzkQJ1_e3sMr9psCZzLZO9fWS1/view?usp=sharing");
+                                                            }}
+                                                            className="inline-flex items-center justify-center px-1.5 py-0.5 bg-white border border-stone-300 text-stone-600 text-[10px] font-bold rounded shadow-sm hover:bg-stone-50 hover:text-amber-600 transition-colors"
+                                                            title="자료 2 보기"
+                                                        >
+                                                            [2]
+                                                        </button>
+                                                    </span>
+                                                )
                                             },
                                             { 
                                                 content: (
@@ -767,9 +790,24 @@
                                                 <a href="https://script.google.com/a/macros/honam.hs.kr/s/AKfycbyIhgzSGrHr-kwxbnfCJgQ_amcXQYOQ0UwbWt1GFbUhV5g1sBbMt1_9Hi7fyWAI_oNH/exec" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold hover:bg-amber-200 transition-colors border border-amber-200">
                                                     <ExternalLink size={14} /> 어휘 점검 도구
                                                 </a>
-                                                <button onClick={() => openModal("https://drive.google.com/file/d/1O2V41GyDG1XAnjEvQc-mLb492wrhJ5MY/view?usp=sharing")} className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white text-stone-600 text-xs font-bold hover:bg-stone-50 hover:text-stone-800 transition-colors border border-stone-300 shadow-sm">
-                                                    <Camera size={14} /> 수업 화면 예시
-                                                </button>
+                                                <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white border border-stone-300 shadow-sm">
+                                                    <Camera size={14} className="text-stone-600"/>
+                                                    <span className="text-xs font-bold text-stone-600">수업 화면 예시</span>
+                                                    <button 
+                                                        onClick={() => openModal("https://drive.google.com/file/d/1O2V41GyDG1XAnjEvQc-mLb492wrhJ5MY/view?usp=sharing")} 
+                                                        className="ml-1 px-1.5 py-0.5 bg-stone-100 hover:bg-amber-100 text-stone-600 hover:text-amber-700 text-[10px] font-bold rounded border border-stone-200 transition-colors"
+                                                        title="수업 화면 예시 1 보기"
+                                                    >
+                                                        [1]
+                                                    </button>
+                                                    <button 
+                                                        onClick={() => openModal("https://drive.google.com/file/d/1nL2w9NlIZ99a8xUCGWVB9nOJwCy6vW9F/view?usp=sharing")} 
+                                                        className="px-1.5 py-0.5 bg-stone-100 hover:bg-amber-100 text-stone-600 hover:text-amber-700 text-[10px] font-bold rounded border border-stone-200 transition-colors"
+                                                        title="수업 화면 예시 2 보기"
+                                                    >
+                                                        [2]
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     }
